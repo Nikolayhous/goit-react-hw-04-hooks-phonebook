@@ -5,12 +5,12 @@
 .form {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 500px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 35px;
     padding: 20px;
-    background-color: rgba(209, 233, 253, 0.678);
+    background-color: rgba(209, 233, 253, 0.478);
     border: 2px solid black;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
         -23px 0 20px -23px rgba(0, 0, 0, 0.8),
