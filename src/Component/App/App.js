@@ -11,6 +11,7 @@ function App() {
     const [contacts, setContacts] = HookLS('contacts') ?? initialContacts;
     const [filter, setFilter] = useState('');
 
+    //Зразок 2 як можна записати в локал сторідж--------------------------------
     // const [contacts, setContacts] = useState(() => {
     //     return JSON.parse(
     //         window.localStorage.getItem('contacts') ?? initialContacts,
@@ -20,6 +21,7 @@ function App() {
     // useEffect(() => {
     //     window.localStorage.setItem('contacts', JSON.stringify(contacts));
     // }, [contacts]);
+    //-----------------------------------------------------------------------
 
     const formSubmitHandler = data => {
         if (
