@@ -1,26 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import s from './App.module.css';
 import Container from '../Container';
 import ContactForm from '../ContactForm';
 import Filter from '../Filter';
 import ContactList from '../ContactList';
 import initialContacts from '../../initialContacts.json';
-import { HookLS } from '../../hookLS/hookLS';
+// import { HookLS } from '../../hookLS/hookLS';
 
 function App() {
-    const [contacts, setContacts] = HookLS('contacts') ?? initialContacts;
+    // const [contacts, setContacts] = HookLS('contacts') ?? initialContacts;
     const [filter, setFilter] = useState('');
 
     //Зразок 2 як можна записати в локал сторідж--------------------------------
-    // const [contacts, setContacts] = useState(() => {
-    //     return JSON.parse(
-    //         window.localStorage.getItem('contacts') ?? initialContacts,
-    //     );
-    // });
+    const [contacts, setContacts] = useState(() => {
+        return JSON.parse(localStorage.getItem('contacts')) ?? initialContacts;
+    });
 
     // useEffect(() => {
-    //     window.localStorage.setItem('contacts', JSON.stringify(contacts));
-    // }, [contacts]);
+    //     const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
+    //     parsedContacts && setContacts(parsedContacts);
+    // }, [setContacts]);
+
+    useEffect(() => {
+        localStorage.setItem('contacts', JSON.stringify(contacts));
+    }, [contacts]);
     //-----------------------------------------------------------------------
 
     const formSubmitHandler = data => {
